@@ -79,6 +79,16 @@ class DesktopEngine(Engine):
         if hasattr(self.__impl, "post_app_init"):
             self.__impl.post_app_init()
 
+        # Start the server
+        """
+        tk_server = sgtk.platform.import_framework("tk-framework-desktopserver", "tk_server")
+        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+        key_path = os.path.join(os.path.dirname(tk_server.__file__), "../../resources/keys")
+        server = tk_server.Server()
+        server.start(False, key_path, True)
+        """
+
+
     def destroy_engine(self):
         """ Clean up the engine """
         self.log_debug("destroy_engine")

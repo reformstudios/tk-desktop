@@ -33,6 +33,35 @@ class DesktopEngineSiteImplementation(object):
         # menu_label
         self._collapse_rules = []
 
+        # Start the server
+        sys.path.append('/Users/rivestm/python/3rd/pycharm-debug.egg')
+        sys.path.append('/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages')
+        #sys.path.append('/Users/rivestm/shotgun/repos/tk-framework-desktopserver/resources/python/tmp2')
+
+        '''
+        import pydevd
+        pydevd.settrace('localhost', port=49931, stdoutToServer=True, stderrToServer=True)
+        '''
+
+        import sgtk
+        tk_server = sgtk.platform.import_framework("tk-framework-desktopserver", "tk_server")
+        key_path = os.path.join(os.path.dirname(tk_server.__file__), "../../resources/keys")
+        server = tk_server.Server()
+        server.start(True, key_path, True)
+
+        '''
+        print "*********************************** Listing Modules ***********************************"
+
+        import types
+        for k in sys.modules.keys():
+            val = sys.modules[k]
+            if hasattr(val, '__file__'):
+                if 'tmp2' in val.__file__:
+                    print "Module: ", val.__name__, val.__file__
+
+        print "***************************************************************************************"
+        '''
+
     def destroy_engine(self):
         if self.proxy is not None:
             self.proxy.close()
