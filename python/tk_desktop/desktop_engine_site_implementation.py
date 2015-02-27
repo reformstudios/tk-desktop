@@ -34,19 +34,6 @@ class DesktopEngineSiteImplementation(object):
         # menu_label
         self._collapse_rules = []
 
-        # Start the server
-
-        """
-        #'''
-        sys.path.append('/Users/rivestm/python/3rd/pycharm-debug.egg')
-        import pydevd
-        pydevd.settrace('localhost', port=49931, stdoutToServer=True, stderrToServer=True)
-        #'''
-
-        fw = sgtk.platform.get_framework("tk-framework-desktopserver")
-        fw.start_server()
-        """
-
     def destroy_engine(self):
         if self.proxy is not None:
             self.proxy.close()
