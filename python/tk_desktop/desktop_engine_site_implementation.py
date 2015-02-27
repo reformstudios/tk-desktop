@@ -35,19 +35,17 @@ class DesktopEngineSiteImplementation(object):
         self._collapse_rules = []
 
         # Start the server
-        #sys.path.append('/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages')
-        #sys.path.append('/Users/rivestm/shotgun/repos/tk-framework-desktopserver/resources/python/tmp2')
 
+        """
+        #'''
+        sys.path.append('/Users/rivestm/python/3rd/pycharm-debug.egg')
+        import pydevd
+        pydevd.settrace('localhost', port=49931, stdoutToServer=True, stderrToServer=True)
+        #'''
 
-        #sys.path.append('/Users/rivestm/python/3rd/pycharm-debug.egg')
-        #import pydevd
-        #pydevd.settrace('localhost', port=49931, stdoutToServer=True, stderrToServer=True)
-
-
-        tk_server = sgtk.platform.import_framework("tk-framework-desktopserver", "tk_server")
-        key_path = os.path.join(os.path.dirname(tk_server.__file__), "../../resources/keys")
-        server = tk_server.Server()
-        server.start(True, key_path, True)
+        fw = sgtk.platform.get_framework("tk-framework-desktopserver")
+        fw.start_server()
+        """
 
     def destroy_engine(self):
         if self.proxy is not None:

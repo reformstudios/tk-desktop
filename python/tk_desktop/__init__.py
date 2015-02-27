@@ -8,6 +8,7 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
+import desktop_server
 
 def get_engine_implementation(implementation_type):
     if implementation_type == "site":
@@ -18,3 +19,4 @@ def get_engine_implementation(implementation_type):
         return DesktopEngineProjectImplementation
 
     raise RuntimeError("unknown implementation_type: '%s'" % implementation_type)
+

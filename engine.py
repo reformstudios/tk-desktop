@@ -80,13 +80,8 @@ class DesktopEngine(Engine):
             self.__impl.post_app_init()
 
         # Start the server
-        """
-        tk_server = sgtk.platform.import_framework("tk-framework-desktopserver", "tk_server")
-        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-        key_path = os.path.join(os.path.dirname(tk_server.__file__), "../../resources/keys")
-        server = tk_server.Server()
-        server.start(False, key_path, True)
-        """
+        tk_desktop = self.import_module("tk_desktop")
+        tk_desktop.desktop_server.start_server()
 
 
     def destroy_engine(self):
